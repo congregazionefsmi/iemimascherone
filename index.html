@@ -34,11 +34,9 @@
         body {
             margin: 0;
             padding: 20px 14px 0;
-
             font-family: Georgia, "Times New Roman", serif;
             color: var(--text-dark);
             background: var(--bg-parchment);
-
             line-height: 1.5;
         }
 
@@ -49,31 +47,24 @@
         .home {
             max-width: 760px;
             margin: 0 auto;
-
             padding: 30px 30px 35px;
-
             background: var(--card-bg);
-
             border: 1px solid var(--border-color);
             border-top: 5px solid var(--gold-accent);
-
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         /* ==================================
-           HOME HEADER
+           HEADER
         ================================== */
 
         .home-hero {
             display: flex;
             flex-direction: column;
             align-items: center;
-
             text-align: center;
-
             padding: 10px 10px 28px;
             margin-bottom: 25px;
-
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -81,15 +72,12 @@
             width: 105px;
             height: 105px;
             object-fit: contain;
-
             margin-bottom: 15px;
         }
 
         .hero-text h1 {
             margin: 0;
-
             color: var(--rubric-red);
-
             font-size: 1.8rem;
             font-weight: normal;
             letter-spacing: 0.045em;
@@ -107,18 +95,19 @@
         }
 
         /* ==================================
-           MAIN MENU GRID
+           MENU GRID
         ================================== */
 
         .app-grid {
             display: grid;
-
             grid-template-columns: repeat(2, minmax(0, 1fr));
-
             gap: 13px;
         }
 
         .app-grid a {
+            position: relative;
+            overflow: hidden;
+
             min-width: 0;
             min-height: 116px;
 
@@ -133,54 +122,84 @@
             text-decoration: none;
 
             background: var(--warm-ivory);
-
             border: 1px solid var(--border-color);
             border-top: 2px solid var(--gold-accent);
 
             color: var(--text-dark);
 
             transition:
+                transform 0.2s ease,
                 background 0.2s ease,
-                border-color 0.2s ease;
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+            
+            -webkit-tap-highlight-color: transparent;
         }
 
+        /* HOVER INTERACTION */
+
+        @media (hover: hover) {
+
+            .app-grid a:hover {
+                background: #ffffff;
+                border-color: var(--gold-accent);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 13px rgba(100, 65, 25, 0.10);
+            }
+
+            .app-grid a:hover h3 {
+                color: #761414;
+            }
+
+            .app-grid a:hover span {
+                transform: scale(1.12);
+            }
+
+        }
+
+        /* TOUCH / CLICK INTERACTION */
+
         .app-grid a:active {
+            transform: scale(0.97);
             background: #f1eadd;
             border-color: var(--gold-accent);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.06);
+        }
+
+        .app-grid a:focus-visible {
+            outline: 2px solid var(--rubric-red);
+            outline-offset: 3px;
         }
 
         .app-grid a span {
             font-size: 25px;
             line-height: 1.3;
             margin-bottom: 5px;
+            transition: transform 0.2s ease;
         }
 
         .app-grid a h3 {
             margin: 3px 0;
-
             color: var(--rubric-red);
-
             font-size: 1rem;
             font-weight: bold;
             letter-spacing: 0.015em;
+            transition: color 0.2s ease;
         }
 
         .app-grid a p {
             margin: 2px 0 0;
-
             color: #77716a;
-
             font-size: 0.78rem;
             line-height: 1.4;
         }
 
         /* ==================================
-           WIDE CANTI CARD
+           CANTI - WIDE BUTTON
         ================================== */
 
         .app-grid a.wide-card {
             grid-column: 1 / -1;
-
             min-height: 90px;
 
             flex-direction: row;
@@ -205,15 +224,26 @@
         }
 
         /* ==================================
+           ABOUT BUTTON
+        ================================== */
+
+        .app-grid a.about-card {
+            min-height: 90px;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .app-grid a.about-card span {
+            font-size: 25px;
+        }
+
+        /* ==================================
            FOOTER
         ================================== */
 
         footer {
             max-width: 760px;
             margin: 0 auto;
-
             padding: 22px 10px 18px;
-
             text-align: center;
         }
 
@@ -266,9 +296,23 @@
                 font-size: 23px;
             }
 
-            .app-grid a.wide-card {
-                min-height: 78px;
+            .app-grid a.wide-card,
+            .app-grid a.about-card {
+                min-height: 82px;
             }
+
+        }
+
+        /* REDUCED MOTION */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .app-grid a,
+            .app-grid a span,
+            .app-grid a h3 {
+                transition: none;
+            }
+
         }
 
     </style>
@@ -278,6 +322,8 @@
 <body>
 
     <main class="home">
+
+        <!-- HEADER -->
 
         <section class="home-hero">
 
@@ -299,9 +345,7 @@
         </section>
 
 
-        <!-- ==================================
-             MAIN MENU
-        ================================== -->
+        <!-- MAIN MENU -->
 
         <section class="app-grid">
 
@@ -365,39 +409,31 @@
                 <p>S. Spirito, Nazareno</p>
             </a>
 
-            <!-- CANTI: SINGLE BUTTON -->
+
+            <!-- CANTI -->
 
             <a href="songbook.html" class="wide-card">
+
                 <span>🎶</span>
 
                 <div>
                     <h3>Canti</h3>
                     <p>Libretto PDF FSMI</p>
                 </div>
+
             </a>
 
-            <a href="costituzioni.html">
-                <span>📜</span>
-                <h3>Costituzioni</h3>
-                <p>Regola di Vita</p>
-            </a>
 
-            <a href="direttorio.html">
-                <span>📘</span>
-                <h3>Direttorio</h3>
-                <p>Direttorio FSMI</p>
-            </a>
+            <!-- ABOUT -->
 
-            <a href="religiosi.html">
-                <span>👥</span>
-                <h3>I Religiosi</h3>
-                <p>Elenco Fratelli</p>
-            </a>
+            <a href="about.html" class="about-card">
 
-            <a href="about.html">
                 <span>ℹ️</span>
+
                 <h3>About</h3>
+
                 <p>Informazioni App</p>
+
             </a>
 
         </section>
@@ -405,26 +441,20 @@
     </main>
 
 
-    <!-- ==================================
-         FOOTER
-    ================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
         <p class="subtitle">
             Istituto Figli di Santa Maria Immacolata
-        </p>
-
-        <p class="subtitle">
+            <br>
             Porto Fiumicino
         </p>
 
     </footer>
 
 
-    <!-- ==================================
-         NAVIGATION
-    ================================== -->
+    <!-- NAVIGATION -->
 
     <script src="js/navigation.js"></script>
 
