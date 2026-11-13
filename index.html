@@ -6,11 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#fdfbf7">
-
-    <title>Istituto FSMI | Preghiere</title>
+    <title>Istituto FSMI - Preghiere</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <meta name="theme-color" content="#fdfbf7">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Preghiere FSMI">
 
     <style>
         :root {
@@ -19,8 +23,8 @@
             --text-dark: #2c2a29;
             --bg-parchment: #fdfbf7;
             --card-bg: #ffffff;
-            --border-color: #e6dfd3;
             --warm-ivory: #faf7f2;
+            --border-color: #e6dfd3;
         }
 
         * {
@@ -29,353 +33,398 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-            padding: 24px 16px;
+            padding: 20px 14px 0;
 
             font-family: Georgia, "Times New Roman", serif;
             color: var(--text-dark);
             background: var(--bg-parchment);
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.5;
         }
 
-        .home-container {
-            width: 100%;
-            max-width: 620px;
+        /* ==================================
+           MAIN CONTAINER
+        ================================== */
+
+        .home {
+            max-width: 760px;
+            margin: 0 auto;
+
+            padding: 30px 30px 35px;
 
             background: var(--card-bg);
 
             border: 1px solid var(--border-color);
             border-top: 5px solid var(--gold-accent);
 
-            padding: 42px 38px;
-
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
-        .app-header {
-            text-align: center;
-            margin-bottom: 36px;
-        }
+        /* ==================================
+           HOME HEADER
+        ================================== */
 
-        .app-emblem {
-            width: 76px;
-            height: 76px;
-            margin: 0 auto 18px;
-
-            border: 1px solid var(--gold-accent);
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--gold-accent);
-            font-size: 30px;
-        }
-
-        .app-institute {
-            font-size: 0.85rem;
-            letter-spacing: 0.18em;
-            color: var(--gold-accent);
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .app-title {
-            color: var(--rubric-red);
-            font-size: 2rem;
-            letter-spacing: 0.07em;
-            font-weight: normal;
-            margin: 0;
-        }
-
-        .app-subtitle {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            font-style: italic;
-            color: #77716a;
-            line-height: 1.6;
-        }
-
-        .header-divider {
-            width: 65px;
-            height: 1px;
-            background: var(--gold-accent);
-            margin: 25px auto 0;
-        }
-
-        .menu {
+        .home-hero {
             display: flex;
             flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 10px 10px 28px;
+            margin-bottom: 25px;
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .home-hero img {
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            margin: 0;
+
+            color: var(--rubric-red);
+
+            font-size: 1.8rem;
+            font-weight: normal;
+            letter-spacing: 0.045em;
+        }
+
+        .subtitle {
+            color: #77716a;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .hero-text .subtitle {
+            margin: 12px 0 0;
+            font-style: italic;
+        }
+
+        /* ==================================
+           MAIN MENU GRID
+        ================================== */
+
+        .app-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
             gap: 13px;
         }
 
-        .menu-button {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-
-            width: 100%;
-            min-height: 76px;
-
-            padding: 15px 20px;
-
-            background: var(--warm-ivory);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--gold-accent);
-
-            color: var(--text-dark);
-            text-decoration: none;
-
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .menu-button:active {
-            background: #f2ece2;
-            transform: scale(0.99);
-        }
-
-        .menu-icon {
-            width: 38px;
-            height: 38px;
-            flex-shrink: 0;
+        .app-grid a {
+            min-width: 0;
+            min-height: 116px;
 
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
 
-            border: 1px solid #e6dfd3;
-            border-radius: 50%;
+            padding: 15px 10px;
 
-            color: var(--rubric-red);
-            font-size: 19px;
+            text-align: center;
+            text-decoration: none;
+
+            background: var(--warm-ivory);
+
+            border: 1px solid var(--border-color);
+            border-top: 2px solid var(--gold-accent);
+
+            color: var(--text-dark);
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .menu-text {
-            flex: 1;
+        .app-grid a:active {
+            background: #f1eadd;
+            border-color: var(--gold-accent);
         }
 
-        .menu-title {
-            display: block;
-            font-size: 1.08rem;
+        .app-grid a span {
+            font-size: 25px;
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .app-grid a h3 {
+            margin: 3px 0;
+
             color: var(--rubric-red);
+
+            font-size: 1rem;
             font-weight: bold;
-            letter-spacing: 0.025em;
+            letter-spacing: 0.015em;
         }
 
-        .menu-description {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.82rem;
+        .app-grid a p {
+            margin: 2px 0 0;
+
             color: #77716a;
+
+            font-size: 0.78rem;
             line-height: 1.4;
         }
 
-        .menu-arrow {
-            color: var(--gold-accent);
-            font-size: 21px;
-        }
+        /* ==================================
+           WIDE CANTI CARD
+        ================================== */
 
-        .app-footer {
-            text-align: center;
-            margin-top: 36px;
-            padding-top: 20px;
+        .app-grid a.wide-card {
+            grid-column: 1 / -1;
+
+            min-height: 90px;
+
+            flex-direction: row;
+            justify-content: center;
+            gap: 18px;
+
+            border-left: 3px solid var(--gold-accent);
             border-top: 1px solid var(--border-color);
         }
 
-        .footer-ornament {
-            color: var(--gold-accent);
-            font-size: 13px;
-            letter-spacing: 5px;
-            margin-bottom: 12px;
+        .wide-card span {
+            font-size: 30px !important;
+            margin: 0 !important;
         }
 
-        .footer-text {
-            color: #898178;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
+        .wide-card h3 {
+            margin: 0 !important;
         }
+
+        .wide-card p {
+            margin-top: 3px !important;
+        }
+
+        /* ==================================
+           FOOTER
+        ================================== */
+
+        footer {
+            max-width: 760px;
+            margin: 0 auto;
+
+            padding: 22px 10px 18px;
+
+            text-align: center;
+        }
+
+        footer .subtitle {
+            margin: 0;
+            font-size: 0.78rem;
+        }
+
+        /* ==================================
+           MOBILE
+        ================================== */
 
         @media (max-width: 600px) {
 
             body {
-                padding: 12px;
-                align-items: flex-start;
+                padding: 12px 10px 0;
             }
 
-            .home-container {
-                padding: 32px 20px;
+            .home {
+                padding: 24px 16px 25px;
             }
 
-            .app-title {
-                font-size: 1.65rem;
+            .home-hero img {
+                width: 85px;
+                height: 85px;
             }
 
-            .menu-button {
-                min-height: 70px;
-                padding: 13px 14px;
-                gap: 13px;
+            .hero-text h1 {
+                font-size: 1.5rem;
             }
 
+            .app-grid {
+                gap: 10px;
+            }
+
+            .app-grid a {
+                min-height: 108px;
+                padding: 12px 6px;
+            }
+
+            .app-grid a h3 {
+                font-size: 0.94rem;
+            }
+
+            .app-grid a p {
+                font-size: 0.72rem;
+            }
+
+            .app-grid a span {
+                font-size: 23px;
+            }
+
+            .app-grid a.wide-card {
+                min-height: 78px;
+            }
         }
+
     </style>
 
 </head>
 
 <body>
 
-    <main class="home-container">
+    <main class="home">
 
-        <!-- HEADER -->
+        <section class="home-hero">
 
-        <header class="app-header">
+            <img src="images/logo.png" alt="Logo Istituto FSMI">
 
-            <div class="app-emblem">✦</div>
+            <div class="hero-text">
 
-            <div class="app-institute">
-                ISTITUTO FSMI
+                <h1>Preghiere</h1>
+
+                <p class="subtitle">
+                    <em>
+                        Raccogliersi nella preghiera,<br>
+                        vivere nella fede.
+                    </em>
+                </p>
+
             </div>
 
-            <h1 class="app-title">
-                PREGHIERE
-            </h1>
-
-            <p class="app-subtitle">
-                Raccogliersi nella preghiera,<br>
-                vivere nella fede.
-            </p>
-
-            <div class="header-divider"></div>
-
-        </header>
+        </section>
 
 
-        <!-- MAIN MENU -->
+        <!-- ==================================
+             MAIN MENU
+        ================================== -->
 
-        <nav class="menu">
+        <section class="app-grid">
 
-            <a href="preghiere.html" class="menu-button">
-
-                <span class="menu-icon">✝</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">Preghiere</span>
-                    <span class="menu-description">
-                        Preghiere quotidiane e personali
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="angelus.html">
+                <span>👼🏼</span>
+                <h3>Angelus</h3>
+                <p>Angelus, Regina Coeli</p>
             </a>
 
-
-            <a href="liturgia.html" class="menu-button">
-
-                <span class="menu-icon">✧</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">Liturgia</span>
-                    <span class="menu-description">
-                        Liturgia delle Ore e celebrazioni
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="morning-prayer.html">
+                <span>☀</span>
+                <h3>Mattino</h3>
+                <p>Invitatorio, Lodi</p>
             </a>
 
-
-            <a href="adorazione.html" class="menu-button">
-
-                <span class="menu-icon">✥</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">Adorazione</span>
-                    <span class="menu-description">
-                        Preghiere eucaristiche e adorazione
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="sesta-nona.html">
+                <span>🌤️</span>
+                <h3>L'ora media</h3>
+                <p>Sesta, Nona</p>
             </a>
 
-
-            <a href="devozioni.html" class="menu-button">
-
-                <span class="menu-icon">✿</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">Devozioni</span>
-                    <span class="menu-description">
-                        Maria Santissima e i Santi
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="rosary.html">
+                <span>📿</span>
+                <h3>Rosario</h3>
+                <p>Misteri, Intenzioni</p>
             </a>
 
-
-            <a href="canti.html" class="menu-button">
-
-                <span class="menu-icon">♫</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">Canti</span>
-                    <span class="menu-description">
-                        Raccolta dei canti
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="mass-guide.html">
+                <span>✝</span>
+                <h3>Santa Messa</h3>
+                <p>Guida</p>
             </a>
 
-
-            <a href="about.html" class="menu-button home-link">
-
-                <span class="menu-icon">ⓘ</span>
-
-                <span class="menu-text">
-                    <span class="menu-title">About</span>
-                    <span class="menu-description">
-                        Informazioni sull'applicazione
-                    </span>
-                </span>
-
-                <span class="menu-arrow">›</span>
-
+            <a href="evening-prayer.html">
+                <span>🌅</span>
+                <h3>Sera</h3>
+                <p>Vespri, Magnificat</p>
             </a>
 
-        </nav>
+            <a href="adoration.html">
+                <span>🕯</span>
+                <h3>Adorazione</h3>
+                <p>Le Laudes Divine</p>
+            </a>
 
+            <a href="night-prayer.html">
+                <span>🌙</span>
+                <h3>Notte</h3>
+                <p>Intercessione</p>
+            </a>
 
-        <!-- FOOTER -->
+            <a href="basic-prayers.html">
+                <span>🙏</span>
+                <h3>Comune</h3>
+                <p>Segno della Croce</p>
+            </a>
 
-        <footer class="app-footer">
+            <a href="devotions.html">
+                <span>✝️</span>
+                <h3>Devozione</h3>
+                <p>S. Spirito, Nazareno</p>
+            </a>
 
-            <div class="footer-ornament">
-                ✦ ✦ ✦
-            </div>
+            <!-- CANTI: SINGLE BUTTON -->
 
-            <div class="footer-text">
-                ISTITUTO FIGLI DI SANTA MARIA IMMACOLATA
-            </div>
+            <a href="songbook.html" class="wide-card">
+                <span>🎶</span>
 
-        </footer>
+                <div>
+                    <h3>Canti</h3>
+                    <p>Libretto PDF FSMI</p>
+                </div>
+            </a>
+
+            <a href="costituzioni.html">
+                <span>📜</span>
+                <h3>Costituzioni</h3>
+                <p>Regola di Vita</p>
+            </a>
+
+            <a href="direttorio.html">
+                <span>📘</span>
+                <h3>Direttorio</h3>
+                <p>Direttorio FSMI</p>
+            </a>
+
+            <a href="religiosi.html">
+                <span>👥</span>
+                <h3>I Religiosi</h3>
+                <p>Elenco Fratelli</p>
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                <h3>About</h3>
+                <p>Informazioni App</p>
+            </a>
+
+        </section>
 
     </main>
 
 
-    <!-- NAVIGATION -->
+    <!-- ==================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+        <p class="subtitle">
+            Istituto Figli di Santa Maria Immacolata
+        </p>
+
+        <p class="subtitle">
+            Porto Fiumicino
+        </p>
+
+    </footer>
+
+
+    <!-- ==================================
+         NAVIGATION
+    ================================== -->
 
     <script src="js/navigation.js"></script>
 
