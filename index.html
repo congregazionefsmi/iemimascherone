@@ -1,30 +1,28 @@
 
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Istituto FSMI - Preghiere</title>
 
+    <meta name="theme-color" content="#fdfbf7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.webmanifest">
 
-    <meta name="theme-color" content="#fdfbf7">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Preghiere FSMI">
-
     <style>
         :root {
-            --rubric-red: #9e1b1b;
-            --gold-accent: #b8860b;
-            --text-dark: #2c2a29;
-            --bg-parchment: #fdfbf7;
-            --card-bg: #ffffff;
-            --warm-ivory: #faf7f2;
-            --border-color: #e6dfd3;
+            --background: #fdfbf7;
+            --surface: #ffffff;
+            --text: #2c2a29;
+            --muted: #77716a;
+            --red: #9e1b1b;
+            --gold: #b8860b;
+            --border: #e9e2d8;
+            --soft: #faf7f2;
         }
 
         * {
@@ -33,428 +31,436 @@
 
         body {
             margin: 0;
-            padding: 20px 14px 0;
+            min-height: 100vh;
+            background: var(--background);
+            color: var(--text);
             font-family: Georgia, "Times New Roman", serif;
-            color: var(--text-dark);
-            background: var(--bg-parchment);
-            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ==================================
-           MAIN CONTAINER
-        ================================== */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-        .home {
-            max-width: 760px;
+        .page {
+            width: min(100% - 36px, 760px);
             margin: 0 auto;
-            padding: 30px 30px 35px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-top: 5px solid var(--gold-accent);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            padding: 48px 0 32px;
         }
 
-        /* ==================================
-           HEADER
-        ================================== */
+        /* HEADER */
 
-        .home-hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .header {
             text-align: center;
-            padding: 10px 10px 28px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 42px;
         }
 
-        .home-hero img {
-            width: 105px;
-            height: 105px;
+        .logo {
+            display: block;
+            width: 76px;
+            height: 76px;
             object-fit: contain;
-            margin-bottom: 15px;
+            margin: 0 auto 18px;
         }
 
-        .hero-text h1 {
+        .eyebrow {
+            margin: 0 0 9px;
+            color: var(--gold);
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
             margin: 0;
-            color: var(--rubric-red);
-            font-size: 1.8rem;
-            font-weight: normal;
-            letter-spacing: 0.045em;
+            color: var(--red);
+            font-size: clamp(30px, 6vw, 39px);
+            font-weight: 400;
+            letter-spacing: -0.8px;
         }
 
         .subtitle {
-            color: #77716a;
-            font-size: 0.9rem;
-            line-height: 1.7;
+            max-width: 340px;
+            margin: 13px auto 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
         }
 
-        .hero-text .subtitle {
-            margin: 12px 0 0;
-            font-style: italic;
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 24px auto 0;
+            color: var(--gold);
         }
 
-        /* ==================================
-           MENU GRID
-        ================================== */
+        .ornament::before,
+        .ornament::after {
+            content: "";
+            width: 48px;
+            height: 1px;
+            background: var(--border);
+        }
 
-        .app-grid {
+        .ornament span {
+            font-size: 13px;
+        }
+
+        /* SECTION */
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 17px;
+            color: var(--red);
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .section-heading::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* CARDS */
+
+        .prayer-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 13px;
         }
 
-        .app-grid a {
+        .prayer-card {
             position: relative;
-            overflow: hidden;
-
-            min-width: 0;
-            min-height: 116px;
-
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-
-            padding: 15px 10px;
-
-            text-align: center;
-            text-decoration: none;
-
-            background: var(--warm-ivory);
-            border: 1px solid var(--border-color);
-            border-top: 2px solid var(--gold-accent);
-
-            color: var(--text-dark);
-
+            min-height: 91px;
+            padding: 17px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
             transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-            
+                transform 180ms ease,
+                border-color 180ms ease,
+                box-shadow 180ms ease;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* HOVER INTERACTION */
-
-        @media (hover: hover) {
-
-            .app-grid a:hover {
-                background: #ffffff;
-                border-color: var(--gold-accent);
-                transform: translateY(-3px);
-                box-shadow: 0 5px 13px rgba(100, 65, 25, 0.10);
-            }
-
-            .app-grid a:hover h3 {
-                color: #761414;
-            }
-
-            .app-grid a:hover span {
-                transform: scale(1.12);
-            }
-
+        .card-content {
+            min-width: 0;
         }
 
-        /* TOUCH / CLICK INTERACTION */
-
-        .app-grid a:active {
-            transform: scale(0.97);
-            background: #f1eadd;
-            border-color: var(--gold-accent);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.06);
+        .card-title {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.25;
         }
 
-        .app-grid a:focus-visible {
-            outline: 2px solid var(--rubric-red);
-            outline-offset: 3px;
-        }
-
-        .app-grid a span {
-            font-size: 25px;
-            line-height: 1.3;
-            margin-bottom: 5px;
-            transition: transform 0.2s ease;
-        }
-
-        .app-grid a h3 {
-            margin: 3px 0;
-            color: var(--rubric-red);
-            font-size: 1rem;
-            font-weight: bold;
-            letter-spacing: 0.015em;
-            transition: color 0.2s ease;
-        }
-
-        .app-grid a p {
-            margin: 2px 0 0;
-            color: #77716a;
-            font-size: 0.78rem;
+        .card-description {
+            display: block;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 11px;
             line-height: 1.4;
         }
 
-        /* ==================================
-           CANTI - WIDE BUTTON
-        ================================== */
-
-        .app-grid a.wide-card {
-            grid-column: 1 / -1;
-            min-height: 90px;
-
-            flex-direction: row;
-            justify-content: center;
-            gap: 18px;
-
-            border-left: 3px solid var(--gold-accent);
-            border-top: 1px solid var(--border-color);
+        .card-arrow {
+            flex-shrink: 0;
+            margin-left: auto;
+            padding-left: 10px;
+            color: var(--gold);
+            font-family: Arial, sans-serif;
+            font-size: 19px;
+            transition: transform 180ms ease;
         }
 
-        .wide-card span {
-            font-size: 30px !important;
-            margin: 0 !important;
+        @media (hover: hover) {
+            .prayer-card:hover {
+                transform: translateY(-2px);
+                border-color: #d5c5a9;
+                box-shadow: 0 5px 16px rgba(66, 49, 27, 0.06);
+            }
+
+            .prayer-card:hover .card-arrow {
+                transform: translateX(3px);
+            }
         }
 
-        .wide-card h3 {
-            margin: 0 !important;
+        .prayer-card:active {
+            transform: scale(0.985);
         }
 
-        .wide-card p {
-            margin-top: 3px !important;
+        .prayer-card:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
         }
 
-        /* ==================================
-           ABOUT BUTTON
-        ================================== */
+        /* FINAL ROW */
 
-        .app-grid a.about-card {
-            min-height: 90px;
-            border-left: 3px solid var(--gold-accent);
+        .bottom-section {
+            margin-top: 35px;
         }
 
-        .app-grid a.about-card span {
-            font-size: 25px;
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
         }
 
-        /* ==================================
-           FOOTER
-        ================================== */
+        .bottom-card {
+            min-height: 88px;
+            background: var(--soft);
+        }
+
+        .bottom-card .card-title {
+            color: var(--red);
+        }
+
+        /* FOOTER */
 
         footer {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 22px 10px 18px;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
             text-align: center;
         }
 
-        footer .subtitle {
+        footer p {
             margin: 0;
-            font-size: 0.78rem;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
         }
 
-        /* ==================================
-           MOBILE
-        ================================== */
+        footer .footer-name {
+            color: var(--text);
+            font-size: 13px;
+        }
 
-        @media (max-width: 600px) {
+        /* MOBILE */
 
-            body {
-                padding: 12px 10px 0;
+        @media (max-width: 520px) {
+            .page {
+                width: min(100% - 28px, 420px);
+                padding-top: 34px;
             }
 
-            .home {
-                padding: 24px 16px 25px;
+            .header {
+                margin-bottom: 34px;
             }
 
-            .home-hero img {
-                width: 85px;
-                height: 85px;
+            .logo {
+                width: 68px;
+                height: 68px;
             }
 
-            .hero-text h1 {
-                font-size: 1.5rem;
-            }
-
-            .app-grid {
+            .prayer-grid,
+            .bottom-grid {
                 gap: 10px;
             }
 
-            .app-grid a {
-                min-height: 108px;
-                padding: 12px 6px;
+            .prayer-card {
+                min-height: 86px;
+                padding: 14px 12px;
             }
 
-            .app-grid a h3 {
-                font-size: 0.94rem;
+            .card-title {
+                font-size: 15px;
             }
 
-            .app-grid a p {
-                font-size: 0.72rem;
+            .card-description {
+                font-size: 10px;
             }
 
-            .app-grid a span {
-                font-size: 23px;
+            .card-arrow {
+                font-size: 16px;
+                padding-left: 5px;
             }
-
-            .app-grid a.wide-card,
-            .app-grid a.about-card {
-                min-height: 82px;
-            }
-
         }
 
-        /* REDUCED MOTION */
+        @media (max-width: 350px) {
+            .prayer-grid,
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         @media (prefers-reduced-motion: reduce) {
-
-            .app-grid a,
-            .app-grid a span,
-            .app-grid a h3 {
-                transition: none;
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
 
-    <main class="home">
+    <main class="page">
 
-        <!-- HEADER -->
+        <header class="header">
+            <img
+                src="images/logo.png"
+                alt="Logo Istituto FSMI"
+                class="logo"
+            >
 
-        <section class="home-hero">
+            <p class="eyebrow">Istituto FSMI</p>
 
-            <img src="images/logo.png" alt="Logo Istituto FSMI">
+            <h1>Preghiere</h1>
 
-            <div class="hero-text">
+            <p class="subtitle">
+                Raccogliersi nella preghiera,
+                vivere nella fede.
+            </p>
 
-                <h1>Preghiere</h1>
+            <div class="ornament">
+                <span>✦</span>
+            </div>
+        </header>
 
-                <p class="subtitle">
-                    <em>
-                        Raccogliersi nella preghiera,<br>
-                        vivere nella fede.
-                    </em>
-                </p>
+
+        <section aria-label="Preghiere quotidiane">
+
+            <h2 class="section-heading">
+                Preghiera quotidiana
+            </h2>
+
+            <div class="prayer-grid">
+
+                <a href="angelus.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Angelus</span>
+                        <span class="card-description">Angelus, Regina Coeli</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="morning-prayer.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Mattino</span>
+                        <span class="card-description">Invitatorio, Lodi</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="sesta-nona.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">L'ora media</span>
+                        <span class="card-description">Sesta, Nona</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="rosary.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Rosario</span>
+                        <span class="card-description">Misteri, Intenzioni</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="mass-guide.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Santa Messa</span>
+                        <span class="card-description">Guida alla celebrazione</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="evening-prayer.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Sera</span>
+                        <span class="card-description">Vespri, Magnificat</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="adoration.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Adorazione</span>
+                        <span class="card-description">Le Laudes Divine</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="night-prayer.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Notte</span>
+                        <span class="card-description">Intercessione</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="basic-prayers.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Preghiere comuni</span>
+                        <span class="card-description">Segno della Croce</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
+
+                <a href="devotions.html" class="prayer-card">
+                    <span class="card-content">
+                        <span class="card-title">Devozioni</span>
+                        <span class="card-description">Spirito Santo, Nazareno</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
 
             </div>
-
         </section>
 
 
-        <!-- MAIN MENU -->
+        <section class="bottom-section" aria-label="Altre risorse">
 
-        <section class="app-grid">
+            <h2 class="section-heading">
+                Altre risorse
+            </h2>
 
-            <a href="angelus.html">
-                <span>👼🏼</span>
-                <h3>Angelus</h3>
-                <p>Angelus, Regina Coeli</p>
-            </a>
+            <div class="bottom-grid">
 
-            <a href="morning-prayer.html">
-                <span>☀</span>
-                <h3>Mattino</h3>
-                <p>Invitatorio, Lodi</p>
-            </a>
+                <a href="songbook.html" class="prayer-card bottom-card">
+                    <span class="card-content">
+                        <span class="card-title">Canti</span>
+                        <span class="card-description">Libretto dei canti FSMI</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
 
-            <a href="sesta-nona.html">
-                <span>🌤️</span>
-                <h3>L'ora media</h3>
-                <p>Sesta, Nona</p>
-            </a>
+                <a href="about.html" class="prayer-card bottom-card">
+                    <span class="card-content">
+                        <span class="card-title">Informazioni</span>
+                        <span class="card-description">Informazioni sull'app</span>
+                    </span>
+                    <span class="card-arrow">›</span>
+                </a>
 
-            <a href="rosary.html">
-                <span>📿</span>
-                <h3>Rosario</h3>
-                <p>Misteri, Intenzioni</p>
-            </a>
-
-            <a href="mass-guide.html">
-                <span>✝</span>
-                <h3>Santa Messa</h3>
-                <p>Guida</p>
-            </a>
-
-            <a href="evening-prayer.html">
-                <span>🌅</span>
-                <h3>Sera</h3>
-                <p>Vespri, Magnificat</p>
-            </a>
-
-            <a href="adoration.html">
-                <span>🕯</span>
-                <h3>Adorazione</h3>
-                <p>Le Laudes Divine</p>
-            </a>
-
-            <a href="night-prayer.html">
-                <span>🌙</span>
-                <h3>Notte</h3>
-                <p>Intercessione</p>
-            </a>
-
-            <a href="basic-prayers.html">
-                <span>🙏</span>
-                <h3>Comune</h3>
-                <p>Segno della Croce</p>
-            </a>
-
-            <a href="devotions.html">
-                <span>✝️</span>
-                <h3>Devozione</h3>
-                <p>S. Spirito, Nazareno</p>
-            </a>
-
-
-            <!-- CANTI -->
-
-            <a href="songbook.html" class="wide-card">
-
-                <span>🎶</span>
-
-                <div>
-                    <h3>Canti</h3>
-                    <p>Libretto PDF FSMI</p>
-                </div>
-
-            </a>
-
-
-            <!-- ABOUT -->
-
-            <a href="about.html" class="about-card">
-
-                <span>ℹ️</span>
-
-                <h3>About</h3>
-
-                <p>Informazioni App</p>
-
-            </a>
-
+            </div>
         </section>
+
+
+        <footer>
+            <p class="footer-name">
+                Istituto Figli di Santa Maria Immacolata
+            </p>
+            <p>Porto Fiumicino</p>
+        </footer>
 
     </main>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p class="subtitle">
-            Istituto Figli di Santa Maria Immacolata
-            <br>
-            Porto Fiumicino
-        </p>
-
-    </footer>
-
-
-    <!-- NAVIGATION -->
 
     <script src="js/navigation.js"></script>
 
