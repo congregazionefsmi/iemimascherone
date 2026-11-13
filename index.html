@@ -1,266 +1,383 @@
+
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sequenza dell'Adorazione al Santissimo e Preghiera dei Vespri</title>
-  <style>
-    :root {
-      --rubric-red: #9e1b1b;
-      --gold-accent: #b8860b;
-      --text-dark: #2c2a29;
-      --bg-parchment: #fdfbf7;
-      --card-bg: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      font-family: "Georgia", "Times New Roman", serif;
-      line-height: 1.65;
-      color: var(--text-dark);
-      background-color: var(--bg-parchment);
-      margin: 0;
-      padding: 2rem 1rem;
-    }
+    <meta name="theme-color" content="#fdfbf7">
 
-    .liturgy-container {
-      max-width: 720px;
-      margin: 0 auto;
-      background-color: var(--card-bg);
-      padding: 3rem 3.5rem;
-      border: 1px solid #e6dfd3;
-      border-top: 5px solid var(--gold-accent);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    }
+    <title>Istituto FSMI | Preghiere</title>
 
-    h1 {
-      text-align: center;
-      font-size: 1.45rem;
-      letter-spacing: 0.06em;
-      color: var(--rubric-red);
-      border-bottom: 1px solid #e6dfd3;
-      padding-bottom: 1.25rem;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
+    <link rel="stylesheet" href="css/style.css">
 
-    h2 {
-      font-size: 1.15rem;
-      letter-spacing: 0.05em;
-      color: var(--rubric-red);
-      margin-top: 2.25rem;
-      margin-bottom: 0.75rem;
-      border-left: 3px solid var(--gold-accent);
-      padding-left: 0.75rem;
-    }
+    <style>
+        :root {
+            --rubric-red: #9e1b1b;
+            --gold-accent: #b8860b;
+            --text-dark: #2c2a29;
+            --bg-parchment: #fdfbf7;
+            --card-bg: #ffffff;
+            --border-color: #e6dfd3;
+            --warm-ivory: #faf7f2;
+        }
 
-    h3 {
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      color: var(--text-dark);
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    .rubric {
-      color: var(--rubric-red);
-      font-style: italic;
-      margin: 1rem 0;
-      font-size: 0.96rem;
-    }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 24px 16px;
 
-    .hymn, .acclamations {
-      margin: 1.5rem auto;
-      padding: 1.25rem 1.75rem;
-      background-color: #faf7f2;
-      border-left: 2px solid #d8cbb8;
-      max-width: 460px;
-    }
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--text-dark);
+            background: var(--bg-parchment);
 
-    .hymn-title {
-      font-weight: bold;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
-      color: var(--text-dark);
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .stanza {
-      margin-bottom: 1rem;
-    }
+        .home-container {
+            width: 100%;
+            max-width: 620px;
 
-    .stanza:last-child {
-      margin-bottom: 0;
-    }
+            background: var(--card-bg);
 
-    .versicle-response {
-      margin: 1rem 0;
-    }
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--gold-accent);
 
-    .versicle-response .label {
-      color: var(--rubric-red);
-      font-weight: bold;
-    }
+            padding: 42px 38px;
 
-    .response {
-      font-weight: bold;
-    }
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
 
-    .vespri-list {
-      list-style-type: none;
-      padding-left: 1.25rem;
-      margin: 0.75rem 0 1.5rem;
-      border-left: 1px solid #e6dfd3;
-    }
+        .app-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
 
-    .vespri-list li {
-      padding: 0.2rem 0;
-    }
+        .app-emblem {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 18px;
 
-    .prayer {
-      margin: 1rem 0 1.5rem;
-      padding-left: 1rem;
-    }
+            border: 1px solid var(--gold-accent);
+            border-radius: 50%;
 
-    @media (max-width: 600px) {
-      .liturgy-container {
-        padding: 1.75rem 1.25rem;
-      }
-      .hymn, .acclamations {
-        padding: 1rem;
-      }
-    }
-  </style>
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold-accent);
+            font-size: 30px;
+        }
+
+        .app-institute {
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            color: var(--gold-accent);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .app-title {
+            color: var(--rubric-red);
+            font-size: 2rem;
+            letter-spacing: 0.07em;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .app-subtitle {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #77716a;
+            line-height: 1.6;
+        }
+
+        .header-divider {
+            width: 65px;
+            height: 1px;
+            background: var(--gold-accent);
+            margin: 25px auto 0;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            width: 100%;
+            min-height: 76px;
+
+            padding: 15px 20px;
+
+            background: var(--warm-ivory);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--gold-accent);
+
+            color: var(--text-dark);
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .menu-button:active {
+            background: #f2ece2;
+            transform: scale(0.99);
+        }
+
+        .menu-icon {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #e6dfd3;
+            border-radius: 50%;
+
+            color: var(--rubric-red);
+            font-size: 19px;
+        }
+
+        .menu-text {
+            flex: 1;
+        }
+
+        .menu-title {
+            display: block;
+            font-size: 1.08rem;
+            color: var(--rubric-red);
+            font-weight: bold;
+            letter-spacing: 0.025em;
+        }
+
+        .menu-description {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.82rem;
+            color: #77716a;
+            line-height: 1.4;
+        }
+
+        .menu-arrow {
+            color: var(--gold-accent);
+            font-size: 21px;
+        }
+
+        .app-footer {
+            text-align: center;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-ornament {
+            color: var(--gold-accent);
+            font-size: 13px;
+            letter-spacing: 5px;
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            color: #898178;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+                align-items: flex-start;
+            }
+
+            .home-container {
+                padding: 32px 20px;
+            }
+
+            .app-title {
+                font-size: 1.65rem;
+            }
+
+            .menu-button {
+                min-height: 70px;
+                padding: 13px 14px;
+                gap: 13px;
+            }
+
+        }
+    </style>
+
 </head>
+
 <body>
 
-  <main class="liturgy-container">
-    <h1>SEQUENZA DELL'ADORAZIONE AL SANTISSIMO E PREGHIERA DEI VESPRI</h1>
+    <main class="home-container">
 
-    <h2>I. ESPOSIZIONE DEL SANTISSIMO</h2>
-    <p class="rubric">
-      Chi guida il momento di preghiera compie l’esposizione e incensa l’Eucaristia, mentre tutti i presenti, stando in piedi, eseguono un canto di esposizione.
-    </p>
+        <!-- HEADER -->
 
-    <div class="hymn">
-      <div class="hymn-title">O SALUTARIS HOSTIA</div>
-      <div class="stanza">
-        O salutaris Hostia,<br>
-        quae caeli pandis ostium<br>
-        bella premunt hostilia,<br>
-        da robur, fer auxilium.
-      </div>
-      <div class="stanza">
-        Uni trinoque Domino<br>
-        sit sempiterna gloria,<br>
-        qui vitam sine termino<br>
-        nobis donet in patria.<br>
-        Amen.
-      </div>
-    </div>
+        <header class="app-header">
 
-    <div class="versicle-response">
-      <div><span class="label">V.</span> Sia lodato e ringraziato ogni momento,</div>
-      <div class="response"><span class="label">R.</span> il Santissimo e divinissimo Sacramento.</div>
-    </div>
+            <div class="app-emblem">✦</div>
 
-    <div class="versicle-response">
-      <div><span class="label">V.</span> Gloria al Padre e al Figlio e allo Spirito Santo</div>
-      <div class="response"><span class="label">R.</span> Come era nel principio ora e sempre nei secoli dei secoli. Amen (3x)</div>
-    </div>
+            <div class="app-institute">
+                ISTITUTO FSMI
+            </div>
 
-    <p class="rubric">Silenzio per l’adorazione e la preghiera personale.</p>
-    <p class="rubric">Al termine del tempo prestabilito per l’adorazione personale, tutti si alzano in piedi per l'inizio della preghiera dei Vespri.</p>
+            <h1 class="app-title">
+                PREGHIERE
+            </h1>
 
-    <h2>II. VESPRI</h2>
-    <ul class="vespri-list">
-      <li>Introduzione</li>
-      <li>Inno</li>
-      <li>Salmodia</li>
-      <li>Lettura breve</li>
-      <li>Responsorio breve</li>
-      <li>Cantico della Beata Vergine</li>
-      <li>Intercessioni</li>
-      <li>Orazione</li>
-    </ul>
+            <p class="app-subtitle">
+                Raccogliersi nella preghiera,<br>
+                vivere nella fede.
+            </p>
 
-    <h2>III. BENEDIZIONE E REPOSIZIONE</h2>
-    
-    <h3>BENEDIZIONE</h3>
-    <p class="rubric">
-      Verso la fine dell'adorazione, il sacerdote o il diacono si accosta all'altare, genuflette e s'inginocchia e si canta il TANTUM ERGO. Frattanto, quando si è fatta l'esposizione con l'ostensorio, il ministro genuflesso incensa il Santissimo Sacramento.
-    </p>
+            <div class="header-divider"></div>
 
-    <div class="hymn">
-      <div class="hymn-title">TANTUM ERGO</div>
-      <div class="stanza">
-        Tantum ergo sacramentum<br>
-        veneremur cernui<br>
-        et antiquum documentum<br>
-        novo cedat ritui.<br>
-        Praestet fides<br>
-        supplementum sensuum defectui.
-      </div>
-      <div class="stanza">
-        Genitori genitoque<br>
-        laus et jubilatio<br>
-        salus, honor, virtus quoque,<br>
-        sit et benedictio.<br>
-        Procedenti ab utroque<br>
-        compar sit laudatio.<br>
-        Amen.
-      </div>
-    </div>
+        </header>
 
-    <p class="rubric">Poi il ministro si alza e dice:</p>
 
-    <div class="versicle-response">
-      <div><span class="label">V.</span> Hai dato il pane disceso dal cielo</div>
-      <div class="response"><span class="label">R.</span> Che porta in sé ogni dolcezza.</div>
-    </div>
+        <!-- MAIN MENU -->
 
-    <div class="versicle-response">
-      <div><span class="label">V.</span> Preghiamo.</div>
-    </div>
+        <nav class="menu">
 
-    <p class="rubric">Dopo una breve pausa di silenzio, prosegue:</p>
+            <a href="preghiere.html" class="menu-button">
 
-    <div class="prayer">
-      Signore Gesù Cristo,<br>
-      che nel mirabile sacramento dell'Eucaristia<br>
-      ci hai lasciato il memoriale della tua Pasqua,<br>
-      fa' che adoriamo con viva fede<br>
-      il santo mistero del tuo corpo e del tuo sangue,<br>
-      per sentire sempre in noi i benefici della redenzione.<br>
-      Tu che vivi e regni nei secoli dei secoli.<br>
-      <div class="response" style="margin-top: 0.5rem;"><span class="label">R.</span> Amen.</div>
-    </div>
+                <span class="menu-icon">✝</span>
 
-    <p class="rubric">
-      Detta l'orazione, il sacerdote o il diacono indossa il velo omerale bianco, prende l'ostensorio o la pisside e fa con il Sacramento il segno di croce sul popolo, senza dire nulla. Un altro sacerdote o ministro stando in ginocchio, incensa il Sacramento. Dopo la benedizione, il sacerdote o il diacono conclude con le seguenti acclamazioni:
-    </p>
+                <span class="menu-text">
+                    <span class="menu-title">Preghiere</span>
+                    <span class="menu-description">
+                        Preghiere quotidiane e personali
+                    </span>
+                </span>
 
-    <div class="acclamations">
-      Dio sia benedetto.<br>
-      Benedetto il suo santo nome.<br>
-      Benedetto Gesù Cristo, vero Dio e vero uomo.<br>
-      Benedetto il nome di Gesù.<br>
-      Benedetto il suo sacratissimo Cuore.<br>
-      Benedetto il suo preziosissimo Sangue.<br>
-      Benedetto Gesù nel santissimo Sacramento dell'altare.<br>
-      Benedetto lo Spirito Santo Paraclito.<br>
-      Benedetta la gran Madre di Dio, Maria santissima.<br>
-      Benedetta la sua santa e immacolata concezione.<br>
-      Benedetta la sua gloriosa assunzione.<br>
-      Benedetto il nome di Maria, vergine e madre.<br>
-      Benedetto san Giuseppe, suo castissimo sposo.<br>
-      Benedetto Dio nei suoi angeli e nei suoi santi.
-    </div>
+                <span class="menu-arrow">›</span>
 
-    <h3>REPOSIZIONE</h3>
-    <p class="rubric">
-      Terminate le acclamazioni, il sacerdote o il diacono che ha impartito la benedizione, ripone il Sacramento nel tabernacolo e genuflette.
-    </p>
-    <p class="rubric">Canto finale</p>
-  </main>
+            </a>
+
+
+            <a href="liturgia.html" class="menu-button">
+
+                <span class="menu-icon">✧</span>
+
+                <span class="menu-text">
+                    <span class="menu-title">Liturgia</span>
+                    <span class="menu-description">
+                        Liturgia delle Ore e celebrazioni
+                    </span>
+                </span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="adorazione.html" class="menu-button">
+
+                <span class="menu-icon">✥</span>
+
+                <span class="menu-text">
+                    <span class="menu-title">Adorazione</span>
+                    <span class="menu-description">
+                        Preghiere eucaristiche e adorazione
+                    </span>
+                </span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="devozioni.html" class="menu-button">
+
+                <span class="menu-icon">✿</span>
+
+                <span class="menu-text">
+                    <span class="menu-title">Devozioni</span>
+                    <span class="menu-description">
+                        Maria Santissima e i Santi
+                    </span>
+                </span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="canti.html" class="menu-button">
+
+                <span class="menu-icon">♫</span>
+
+                <span class="menu-text">
+                    <span class="menu-title">Canti</span>
+                    <span class="menu-description">
+                        Raccolta dei canti
+                    </span>
+                </span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="about.html" class="menu-button home-link">
+
+                <span class="menu-icon">ⓘ</span>
+
+                <span class="menu-text">
+                    <span class="menu-title">About</span>
+                    <span class="menu-description">
+                        Informazioni sull'applicazione
+                    </span>
+                </span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- FOOTER -->
+
+        <footer class="app-footer">
+
+            <div class="footer-ornament">
+                ✦ ✦ ✦
+            </div>
+
+            <div class="footer-text">
+                ISTITUTO FIGLI DI SANTA MARIA IMMACOLATA
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- NAVIGATION -->
+
+    <script src="js/navigation.js"></script>
 
 </body>
 </html>
