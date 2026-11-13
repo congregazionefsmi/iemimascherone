@@ -7,7 +7,7 @@
 
     <title>Istituto FSMI - Preghiere</title>
 
-    <meta name="theme-color" content="#fdfbf7">
+    <meta name="theme-color" content="#f8f5ef">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" href="css/style.css">
@@ -15,14 +15,14 @@
 
     <style>
         :root {
-            --background: #fdfbf7;
+            --background: #f8f5ef;
             --surface: #ffffff;
-            --text: #2c2a29;
-            --muted: #77716a;
-            --red: #9e1b1b;
-            --gold: #b8860b;
-            --border: #e9e2d8;
-            --soft: #faf7f2;
+            --text: #39312c;
+            --red: #842630;
+            --icon-bg: #f8eee9;
+            --icon-color: #922d36;
+            --border: #e7ddcf;
+            --muted: #877b70;
         }
 
         * {
@@ -34,7 +34,7 @@
             min-height: 100vh;
             background: var(--background);
             color: var(--text);
-            font-family: Georgia, "Times New Roman", serif;
+            font-family: Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -43,258 +43,163 @@
             text-decoration: none;
         }
 
+        /* MAIN PAGE */
+
         .page {
-            width: min(100% - 36px, 760px);
+            width: min(100% - 28px, 480px);
             margin: 0 auto;
-            padding: 48px 0 32px;
+            padding: 24px 0 20px;
         }
 
         /* HEADER */
 
-        .header {
-            text-align: center;
-            margin-bottom: 42px;
+        .brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 11px;
+            margin: 2px 0 24px;
         }
 
         .logo {
-            display: block;
-            width: 76px;
-            height: 76px;
+            width: 43px;
+            height: 43px;
             object-fit: contain;
-            margin: 0 auto 18px;
         }
 
-        .eyebrow {
-            margin: 0 0 9px;
-            color: var(--gold);
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        h1 {
+        .brand-name {
             margin: 0;
             color: var(--red);
-            font-size: clamp(30px, 6vw, 39px);
-            font-weight: 400;
-            letter-spacing: -0.8px;
-        }
-
-        .subtitle {
-            max-width: 340px;
-            margin: 13px auto 0;
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 24px auto 0;
-            color: var(--gold);
-        }
-
-        .ornament::before,
-        .ornament::after {
-            content: "";
-            width: 48px;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .ornament span {
-            font-size: 13px;
-        }
-
-        /* SECTION */
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 0 0 17px;
-            color: var(--red);
-            font-size: 17px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
             font-weight: 400;
         }
 
-        .section-heading::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
+        /* NAVIGATION GRID */
 
-        /* CARDS */
-
-        .prayer-grid {
+        .navigation-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 13px;
+            gap: 11px;
         }
 
-        .prayer-card {
-            position: relative;
+        .navigation-card {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            min-height: 91px;
-            padding: 17px 18px;
+            gap: 10px;
+
+            min-width: 0;
+            min-height: 105px;
+            padding: 12px 8px;
+
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 7px;
+            border-radius: 9px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 5px rgba(71, 50, 28, 0.04);
+
             transition:
-                transform 180ms ease,
-                border-color 180ms ease,
-                box-shadow 180ms ease;
+                transform 150ms ease,
+                background 150ms ease,
+                border-color 150ms ease;
+
             -webkit-tap-highlight-color: transparent;
         }
 
-        .card-content {
-            min-width: 0;
+        .navigation-icon {
+            display: grid;
+            place-items: center;
+
+            width: 34px;
+            height: 34px;
+
+            border-radius: 9px;
+            background: var(--icon-bg);
+
+            color: var(--icon-color);
+            font-size: 21px;
+            line-height: 1;
         }
 
-        .card-title {
-            display: block;
-            margin-bottom: 6px;
+        .navigation-title {
             color: var(--text);
-            font-size: 17px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
             font-weight: 400;
-            line-height: 1.25;
+            line-height: 1.2;
         }
 
-        .card-description {
-            display: block;
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            line-height: 1.4;
-        }
-
-        .card-arrow {
-            flex-shrink: 0;
-            margin-left: auto;
-            padding-left: 10px;
-            color: var(--gold);
-            font-family: Arial, sans-serif;
-            font-size: 19px;
-            transition: transform 180ms ease;
-        }
+        /* INTERACTION */
 
         @media (hover: hover) {
-            .prayer-card:hover {
-                transform: translateY(-2px);
-                border-color: #d5c5a9;
-                box-shadow: 0 5px 16px rgba(66, 49, 27, 0.06);
-            }
-
-            .prayer-card:hover .card-arrow {
-                transform: translateX(3px);
+            .navigation-card:hover {
+                background: #fffdfa;
+                border-color: #d9c6ad;
             }
         }
 
-        .prayer-card:active {
-            transform: scale(0.985);
+        .navigation-card:active {
+            transform: scale(0.98);
+            background: #f5eee5;
         }
 
-        .prayer-card:focus-visible {
-            outline: 2px solid var(--gold);
+        .navigation-card:focus-visible {
+            outline: 2px solid #b18a4b;
             outline-offset: 3px;
-        }
-
-        /* FINAL ROW */
-
-        .bottom-section {
-            margin-top: 35px;
-        }
-
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 13px;
-        }
-
-        .bottom-card {
-            min-height: 88px;
-            background: var(--soft);
-        }
-
-        .bottom-card .card-title {
-            color: var(--red);
         }
 
         /* FOOTER */
 
-        footer {
-            margin-top: 48px;
-            padding-top: 20px;
+        .footer {
+            margin-top: 25px;
+            padding-top: 15px;
             border-top: 1px solid var(--border);
             text-align: center;
         }
 
-        footer p {
+        .copyright {
+            margin: 0 0 6px;
+            color: var(--red);
+            font-size: 11px;
+        }
+
+        .address {
             margin: 0;
             color: var(--muted);
-            font-size: 12px;
-            line-height: 1.8;
+            font-size: 10px;
+            line-height: 1.7;
         }
 
-        footer .footer-name {
-            color: var(--text);
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 520px) {
-            .page {
-                width: min(100% - 28px, 420px);
-                padding-top: 34px;
-            }
-
-            .header {
-                margin-bottom: 34px;
-            }
-
-            .logo {
-                width: 68px;
-                height: 68px;
-            }
-
-            .prayer-grid,
-            .bottom-grid {
-                gap: 10px;
-            }
-
-            .prayer-card {
-                min-height: 86px;
-                padding: 14px 12px;
-            }
-
-            .card-title {
-                font-size: 15px;
-            }
-
-            .card-description {
-                font-size: 10px;
-            }
-
-            .card-arrow {
-                font-size: 16px;
-                padding-left: 5px;
-            }
-        }
+        /* SMALL SCREENS */
 
         @media (max-width: 350px) {
-            .prayer-grid,
-            .bottom-grid {
-                grid-template-columns: 1fr;
+            .page {
+                width: min(100% - 22px, 480px);
+            }
+
+            .navigation-grid {
+                gap: 8px;
+            }
+
+            .navigation-card {
+                min-height: 96px;
+                padding: 9px 5px;
+            }
+
+            .navigation-title {
+                font-size: 14px;
+            }
+
+            .brand-name {
+                font-size: 18px;
             }
         }
+
+        /* ACCESSIBILITY */
 
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -311,153 +216,99 @@
 
     <main class="page">
 
-        <header class="header">
+        <!-- HEADER -->
+
+        <header class="brand">
             <img
                 src="images/logo.png"
-                alt="Logo Istituto FSMI"
+                alt="Logo FSMI"
                 class="logo"
             >
 
-            <p class="eyebrow">Istituto FSMI</p>
-
-            <h1>Preghiere</h1>
-
-            <p class="subtitle">
-                Raccogliersi nella preghiera,
-                vivere nella fede.
-            </p>
-
-            <div class="ornament">
-                <span>✦</span>
-            </div>
+            <h1 class="brand-name">Istituto FSMI</h1>
         </header>
 
 
-        <section aria-label="Preghiere quotidiane">
+        <!-- NAVIGATION -->
 
-            <h2 class="section-heading">
-                Preghiera quotidiana
-            </h2>
+        <nav class="navigation-grid" aria-label="Navigazione principale">
 
-            <div class="prayer-grid">
+            <a href="angelus.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">☼</span>
+                <span class="navigation-title">Angelus</span>
+            </a>
 
-                <a href="angelus.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Angelus</span>
-                        <span class="card-description">Angelus, Regina Coeli</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="morning-prayer.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">☀</span>
+                <span class="navigation-title">Mattino</span>
+            </a>
 
-                <a href="morning-prayer.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Mattino</span>
-                        <span class="card-description">Invitatorio, Lodi</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="sesta-nona.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">◷</span>
+                <span class="navigation-title">Ora media</span>
+            </a>
 
-                <a href="sesta-nona.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">L'ora media</span>
-                        <span class="card-description">Sesta, Nona</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="rosary.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">✝</span>
+                <span class="navigation-title">Rosario</span>
+            </a>
 
-                <a href="rosary.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Rosario</span>
-                        <span class="card-description">Misteri, Intenzioni</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="mass-guide.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">♱</span>
+                <span class="navigation-title">Santa Messa</span>
+            </a>
 
-                <a href="mass-guide.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Santa Messa</span>
-                        <span class="card-description">Guida alla celebrazione</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="evening-prayer.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">☾</span>
+                <span class="navigation-title">Sera</span>
+            </a>
 
-                <a href="evening-prayer.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Sera</span>
-                        <span class="card-description">Vespri, Magnificat</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="adorazione.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">♧</span>
+                <span class="navigation-title">Adorazione</span>
+            </a>
 
-                <a href="adorazione.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Adorazione</span>
-                        <span class="card-description">Le Laudes Divine</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="night-prayer.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">☽</span>
+                <span class="navigation-title">Notte</span>
+            </a>
 
-                <a href="night-prayer.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Notte</span>
-                        <span class="card-description">Intercessione</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="basic-prayers.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">✧</span>
+                <span class="navigation-title">Preghiere comuni</span>
+            </a>
 
-                <a href="basic-prayers.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Preghiere comuni</span>
-                        <span class="card-description">Segno della Croce</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="devotions.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">♡</span>
+                <span class="navigation-title">Devozioni</span>
+            </a>
 
-                <a href="devotions.html" class="prayer-card">
-                    <span class="card-content">
-                        <span class="card-title">Devozioni</span>
-                        <span class="card-description">Spirito Santo, Nazareno</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
+            <a href="songbook.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">♫</span>
+                <span class="navigation-title">Canti</span>
+            </a>
 
-            </div>
-        </section>
+            <a href="about.html" class="navigation-card">
+                <span class="navigation-icon" aria-hidden="true">ⓘ</span>
+                <span class="navigation-title">Informazioni</span>
+            </a>
+
+        </nav>
 
 
-        <section class="bottom-section" aria-label="Altre risorse">
+        <!-- FOOTER -->
 
-            <h2 class="section-heading">
-                Altre risorse
-            </h2>
+        <footer class="footer">
 
-            <div class="bottom-grid">
-
-                <a href="songbook.html" class="prayer-card bottom-card">
-                    <span class="card-content">
-                        <span class="card-title">Canti</span>
-                        <span class="card-description">Libretto dei canti FSMI</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
-
-                <a href="about.html" class="prayer-card bottom-card">
-                    <span class="card-content">
-                        <span class="card-title">Informazioni</span>
-                        <span class="card-description">Informazioni sull'app</span>
-                    </span>
-                    <span class="card-arrow">›</span>
-                </a>
-
-            </div>
-        </section>
-
-
-        <footer>
-            <p class="footer-name">
-                Istituto Figli di Santa Maria Immacolata
+            <p class="copyright">
+                © 2026 · Istituto FSMI
             </p>
-            <p>Via del Mascherone, 55, 00186 Roma</p>
+
+            <p class="address">
+                Via del Mascherone, 55<br>
+                00186 Roma
+            </p>
+
         </footer>
 
     </main>
